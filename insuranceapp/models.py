@@ -4,7 +4,7 @@ from django.db import models
 
 class Employee(models.Model):
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=5p0)
+    last_name = models.CharField(max_length=50)
     emp_id = models.PositiveBigIntegerField()
 
     def __str__(self):

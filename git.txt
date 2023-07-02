@@ -1,0 +1,14 @@
+git status
+git add .
+git commit -m 'message'
+git branch -M main
+git push -u origin main
+
+
+
+
+Git credtinals
+RoshaniSingh0404
+roshani@1234.
+
+https://github.com/RoshaniSingh0404/Insurance_project/tree/main/templates
