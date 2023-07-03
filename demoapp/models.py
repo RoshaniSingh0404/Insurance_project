@@ -23,7 +23,6 @@ class Employeedetails(models.Model):
 
     
 
-
     def __str__(self):
         return ("{}/{}---{}".format(self.fname,self.lname,self.designation))
 
