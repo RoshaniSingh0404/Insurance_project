@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from email.message import Message
 from pathlib import Path
 import os
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'insuranceapp',
+    'demoapp'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+from django.contrib.messages import constants as message
+
+MESSAGE_TAGS = {
+    message.DEBUG:'alert-info',
+    message.INFO:'alert-info',
+    message.SUCCESS:'alert-info',
+    message.WARNING:'alert-info',
+    message.ERROR:'alert-info',
+} 

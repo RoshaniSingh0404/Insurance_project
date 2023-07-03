@@ -4,7 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm
+from .forms import LoginForm,EmployeeForm
+from .models import Employee
 
 
 
@@ -52,6 +53,7 @@ class loginpage(TemplateView):
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
+        
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
             if user is not None:
@@ -69,3 +71,41 @@ class somepage(TemplateView):
         return render(request,'somepage.html')
     def post(self,request):
         return render(request,'somepage.html')
+
+
+class EmployeeBasedView(TemplateView):
+    def get(self,request):
+        form = EmployeeForm()
+        return render(request,'employeeform.html',{'form':form})
+
+    def post(self,request):
+        form = EmployeeForm(request.POST)
+        fname = request.POST.get("first_name") 
+        lname = request.POST.get("last_name") 
+        emp_id = request.POST.get("emp_id") 
+
+        print(fname,lname,emp_id,'==========')
+
+        ###method1
+
+        # Employee.objects.create(first_name=fname,last_name=lname,emp_id=emp_id)
+
+        ###method2
+        
+        if form.is_valid():
+            form.save()
+            print("succcessfully done")
+            return redirect('somepage')
+        else:
+            
+            print('noooooooooo')
+            form.error()
+        return render(request,'employeeform.html')
+
+
+class EmployeeDeatils(TemplateView):
+    def get(self,request):
+        return render(request,'base.html')
+    def post(self,request):
+        return render(request,'base.html')
+

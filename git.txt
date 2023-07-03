@@ -5,6 +5,10 @@ git branch -M main
 git push -u origin main
 
 
+#dont use it
+git reset --hard HEAD
+
+
 
 
 Git credtinals
