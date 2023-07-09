@@ -12,4 +12,5 @@ urlpatterns = [
     re_path('^EmployeeDeatils',EmployeeDeatils.as_view(),name='EmployeeDeatils'),
 
 
+
 ]

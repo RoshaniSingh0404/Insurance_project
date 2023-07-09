@@ -1,10 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <br><br>
+  
+  {% if form %}
+  <div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endif %}
 
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Active</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in query_obj %}
+      <tr>
+        <td>{{emp.fname}}</td>
+        <td>{{emp.lname}}</td>
+        <td>{{emp.active}}</td>
+        <td>{{ emp.designation}}</td>
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+</div>
 
-{% extends 'base.html' %}
-
-
-
-{% block content %}
-<h1>Demo app details</h1>
-
-{% endblock %}
+</body>
+</html>
