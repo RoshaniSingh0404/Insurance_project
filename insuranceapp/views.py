@@ -9,6 +9,7 @@ from .models import Employee
 
 
 
+
 # Create your views here.
 
 class registerationpage(TemplateView):
@@ -108,4 +109,8 @@ class EmployeeDeatils(TemplateView):
         return render(request,'base.html')
     def post(self,request):
         return render(request,'base.html')
+
+
+
+
 

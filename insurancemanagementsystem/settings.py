@@ -143,3 +143,9 @@ MESSAGE_TAGS = {
     message.WARNING:'alert-info',
     message.ERROR:'alert-info',
 } 
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB
+
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                    "django_excel.TemporaryExcelFileUploadHandler")
+

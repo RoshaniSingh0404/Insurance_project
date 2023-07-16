@@ -3,4 +3,6 @@ from .models import *
 
 admin.site.register(Employeedetails)
 
+
+admin.site.register(Employeeuploadfile)
 # Register your models here.

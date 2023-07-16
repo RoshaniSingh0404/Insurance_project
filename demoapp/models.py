@@ -26,3 +26,11 @@ class Employeedetails(models.Model):
     def __str__(self):
         return ("{}/{}---{}".format(self.fname,self.lname,self.designation))
 
+
+class Employeeuploadfile(models.Model):
+    emp = models.ForeignKey(Employeedetails,on_delete=models.CASCADE)
+    upload_file = models.FileField(upload_to='documents/',null=True,blank=True)
+    description = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return (f"{self.emp.fname}-{self.emp.lname}")
